@@ -1,0 +1,1 @@
+from .gigachat_client import model
