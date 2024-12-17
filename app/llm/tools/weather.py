@@ -1,4 +1,7 @@
 from langchain.tools import tool
+from model import predict_rfr_weather, predict_bert_weather
+
+import config
 
 
 @tool
@@ -11,7 +14,11 @@ def get_weather(day: int, month: int, year: int) -> str:
     :return: температура на дату
     """
 
-    #TODO тут обращение к модели прогнозирования
-    temperature = -11.5 # Мок
-    ret = f'Ожидаемая температура {temperature}. Предложи варианты соответствующей одежды.'
-    return ret
+    if config.predict_model == 'bert':
+        resp = predict_bert_weather(f'{day}.{month}.{year}')
+    else:
+        resp = predict_rfr_weather(day, month, year)
+
+    # Формируем ответ
+    resp = f'{resp}. Верни значение температуры и предложи варианты соответствующей одежды.'
+    return resp

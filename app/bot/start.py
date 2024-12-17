@@ -1,4 +1,6 @@
 from aiogram import Bot, Dispatcher
+from aiogram.client.default import DefaultBotProperties
+from aiogram.enums import ParseMode
 from aiogram.fsm.storage.memory import MemoryStorage
 from .routers import base_router
 import config
@@ -12,7 +14,7 @@ dp = Dispatcher(storage=MemoryStorage())
 
 
 async def bot_start():
-    bot = Bot(token=config.bot_token)
+    bot = Bot(token=config.bot_token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 
     # Добавлять роутеры тут:
     dp.include_router(base_router)

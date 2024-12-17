@@ -1,0 +1,1 @@
+from .predict_functions import predict_bert_weather, predict_rfr_weather
