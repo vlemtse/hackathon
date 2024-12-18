@@ -14,11 +14,14 @@ def get_weather(day: int, month: int, year: int) -> str:
     :return: температура на дату
     """
 
-    if config.predict_model == 'bert':
-        resp = predict_bert_weather(f'{day}.{month}.{year}')
+    if config.predict_model == "bert":
+        resp = predict_bert_weather(f"{day}.{month}.{year}")
     else:
         resp = predict_rfr_weather(day, month, year)
 
     # Формируем ответ
-    resp = f'{resp}. Верни значение температуры и предложи варианты соответствующей одежды.'
+    resp = (
+        f"{resp}. Верни значение температуры вместе с точной датой прогноза и предложи варианты соответствующей одежды."
+        f"так же верни количество осадков и облачность если они есть в контексте"
+    )
     return resp

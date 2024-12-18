@@ -10,6 +10,7 @@ logger = getLogger(__name__)
 
 router = Router()
 
+
 @router.message()
 async def echo(msg: Message):
     resp = await get_llm_answer(msg.text)
