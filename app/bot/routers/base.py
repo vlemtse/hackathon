@@ -13,5 +13,9 @@ router = Router()
 
 @router.message()
 async def echo(msg: Message):
-    resp = await get_llm_answer(msg.text)
+    """
+    Функция обрабатывает входящее сообщение, получает ответ от LLM и отправляет его обратно.
+    """
+    logger.info(f"Got message: {msg}")
+    resp = await get_llm_answer(msg.text, msg.date)
     await msg.answer(resp)

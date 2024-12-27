@@ -5,6 +5,7 @@ import pandas as pd
 
 from transformers import BertTokenizer, BertForSequenceClassification
 
+from .weather_lstm_model.weather_lstm_model import load_model, predict_temperature
 
 current_directory = os.getcwd()
 
@@ -63,4 +64,16 @@ def predict_rfr_weather(day: int, month: int, year: int) -> str:
     temperature = round(loaded_model.predict(pred_d)[0], 0)
 
     res = f'Температура: {temperature}'
+    return res
+
+def predict_lstm_weather(hour:int, minuts:int, day: int, month: int, year: int) -> str:
+    
+    date = f"{year}-{month:02d}-{day:02d} {hour}:{minuts}:00"
+    # Загрузка модели
+    model_path = f"{current_directory}/model/weather_lstm_model/model.pth"
+    loaded_model = load_model(model_path)
+
+    # Получение предсказания
+    predicted_temp = predict_temperature(date, loaded_model)
+    res = f"Предсказанная температура на {date}: {predicted_temp:.0f}°C"
     return res

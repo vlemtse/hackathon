@@ -1,1 +1,2 @@
-from .predict_functions import predict_bert_weather, predict_rfr_weather
+from .predict_functions import predict_bert_weather, predict_rfr_weather, predict_lstm_weather
+from .weather_lstm_model.weather_lstm_model import load_model, predict_temperature
