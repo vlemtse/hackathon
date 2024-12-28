@@ -46,17 +46,17 @@ predict_model = "bert"  # bert | rfr | lstm
 
 ## Окружение
 
-Для запуска кода можно воскользоватся следющими файлами из директории [env](env/) и командами.
+Для запуска кода можно воскользоватся следющими файлами из директории [start_env/](./start_env/) и командами.
 
 1. Без GPU:
    * **Способ 1:**
-      * В папке env есть файл с окруженем conda [ml_env_py312.yml](./env/ml_env_py312.yml). 
+      * В папке env есть файл с окруженем conda [ml_env_py312.yml](./start_env//ml_env_py312.yml). 
       * Для установки выполните команду `conda env create -f ml_env_py312.yml`
    * **Способ 2:**
-      * В папке env есть файл с зависимосятми [requirements.txt](./env/requirements.txt). 
+      * В папке env есть файл с зависимосятми [requirements.txt](./start_env//requirements.txt). 
       * Для установки выполните команду `pip install -r requirements.txt`
 2. С GPU:
-   * В папке env есть файл с окруженем conda [rocm_env_py310.yml](./env/rocm_env_py310.yml).
+   * В папке env есть файл с окруженем conda [rocm_env_py310.yml](./start_env//rocm_env_py310.yml).
    * Для установки выполните команду `conda env create -f rocm_env_py310.yml`
 
 Для запуска на AMD видеокарте потребуется установка rocm.
