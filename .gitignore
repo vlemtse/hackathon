@@ -177,5 +177,4 @@ model/weather_model/model.safetensors
 model/weather_tokenizer/special_tokens_map.json
 model/weather_tokenizer/tokenizer_config.json
 model/weather_tokenizer/vocab.txt
-config.py
 .vscode/launch.json
